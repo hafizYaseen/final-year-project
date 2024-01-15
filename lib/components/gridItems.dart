@@ -19,12 +19,13 @@ class GridItem extends StatelessWidget {
         Navigator.push(context, PageTransition(child: SplashScreen(), type: PageTransitionType.fade));
       },
       child: Container(
+        //padding: EdgeInsets.only(top: 2.h),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
-          color: Constants.secondaryColor,
+          borderRadius: BorderRadius.circular(3.h),
+          color: Constants.tertiaryColor,
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child: ClipRRect(
@@ -40,7 +41,7 @@ class GridItem extends StatelessWidget {
               child: Text(
                 title,
                 style: GoogleFonts.montserrat(
-                    fontSize: 12.sp, fontWeight: FontWeight.bold, color: Constants.primaryColor
+                    fontSize: 12.sp, fontWeight: FontWeight.bold, color: Constants.secondaryColor
                 ),
                 textAlign: TextAlign.center,
               ),

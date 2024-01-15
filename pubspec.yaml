@@ -39,6 +39,7 @@ dependencies:
   sizer: ^2.0.15
   page_transition: ^2.1.0
   font_awesome_flutter: ^10.6.0
+  curved_navigation_bar: ^1.0.3
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled/components/bottomNavBar.dart';
 import 'package:untitled/components/constants.dart';
 import 'package:untitled/ui/homeScreen.dart';
 import 'package:untitled/ui/loginScreen.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           //theme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
-          home: HomeScreen(),
+          home: NavigationBarBottom(),
         );
       }
     );

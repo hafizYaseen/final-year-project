@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+import 'package:untitled/components/bottomNavBar.dart';
+import 'package:untitled/components/drawer.dart';
 import 'package:untitled/components/formFieldText.dart';
 import '../components/constants.dart';
 import '../components/gridItems.dart';
@@ -10,21 +12,19 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
 
   List<String> imageUrls = [
-    'assets/images/logo.jpg',
-    'assets/images/logo.jpg',
-    'assets/images/logo.jpg',
-    'assets/images/logo.jpg',
-    'assets/images/logo.jpg',
-    'assets/images/logo.jpg',
+    'assets/images/Xtremeskills logo.jpg',
+    'assets/images/Xtremeskills logo.jpg',
+    'assets/images/Xtremeskills logo.jpg',
+    'assets/images/Xtremeskills logo.jpg',
+    'assets/images/Xtremeskills logo.jpg',
+    'assets/images/Xtremeskills logo.jpg',
   ];
 
   List<String> gridImages = [
-    'assets/images/logo2.jpg',
-    'assets/images/logo2.jpg',
-    'assets/images/logo2.jpg',
-    'assets/images/logo2.jpg',
-    'assets/images/logo2.jpg',
-    'assets/images/logo2.jpg',
+    'assets/images/plumber.png',
+    'assets/images/electrician.png',
+    'assets/images/carpenter.png',
+    'assets/images/barber.png',
   ];
 
   List<String> gridTitles = [
@@ -32,15 +32,19 @@ class HomeScreen extends StatelessWidget {
     'Electrician',
     'Carpenter',
     'Plumber',
-    'Plumber',
-    'Plumber',
+  ];
+
+  final List<IconData> iconDataList = [
+
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      backgroundColor: Colors.white,
+      drawer: CustomDrawer(),
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Constants.secondaryColor,
         title: Text(
           'XtremeSkills',
@@ -53,7 +57,7 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding: EdgeInsets.only(right: 1.7.h),
             child: Icon(
               Icons.notifications_outlined,
               color: Colors.white,
@@ -74,17 +78,23 @@ class HomeScreen extends StatelessWidget {
               hintText: 'Search',
               prefixIcon: Icons.search,
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 2.h),
             HorizontalImageList(images: imageUrls),
-            SizedBox(height: 20),
-            Expanded(
+            SizedBox(height: 2.h),
+            Container(
+              padding: EdgeInsets.all(4.h),
+              height: 42.h, // Set the desired height
+              decoration: BoxDecoration(
+                color: Constants.primaryColor, // Set the desired background color
+                borderRadius: BorderRadius.circular(4.h),
+              ),
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // Number of columns in the grid
                   crossAxisSpacing: 2.h,
                   mainAxisSpacing: 2.h,
                 ),
-                itemCount: imageUrls.length,
+                itemCount: gridImages.length,
                 itemBuilder: (context, index) {
                   return GridItem(imageUrl: gridImages[index], title: gridTitles[index]);
                 },
@@ -96,5 +106,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
