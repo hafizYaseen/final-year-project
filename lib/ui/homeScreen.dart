@@ -59,48 +59,51 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 1.7.h),
             child: Icon(
-              Icons.notifications_outlined,
+              Icons.shopping_cart,
               color: Colors.white,
             ),
           )
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            SizedBox(height: 5.w),
-            FormFieldText(
-              focusedBorderColor: Constants.primaryColor,
-              obscureText: false,
-              textInputType: TextInputType.text,
-              length: 50,
-              hintText: 'Search',
-              prefixIcon: Icons.search,
-            ),
-            SizedBox(height: 2.h),
-            HorizontalImageList(images: imageUrls),
-            SizedBox(height: 2.h),
-            Container(
-              padding: EdgeInsets.all(4.h),
-              height: 42.h, // Set the desired height
-              decoration: BoxDecoration(
-                color: Constants.primaryColor, // Set the desired background color
-                borderRadius: BorderRadius.circular(4.h),
+        padding: EdgeInsets.symmetric(horizontal: 2.3.h),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 5.w),
+              FormFieldText(
+                focusedBorderColor: Constants.primaryColor,
+                obscureText: false,
+                textInputType: TextInputType.text,
+                length: 50,
+                hintText: 'Search',
+                prefixIcon: Icons.search,
+                suffixIcon: Icons.mic,
               ),
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // Number of columns in the grid
-                  crossAxisSpacing: 2.h,
-                  mainAxisSpacing: 2.h,
+              SizedBox(height: 2.h),
+              HorizontalImageList(images: imageUrls),
+              SizedBox(height: 2.h),
+              Container(
+                padding: EdgeInsets.all(4.h),
+                height: 42.h, // Set the desired height
+                decoration: BoxDecoration(
+                  color: Constants.primaryColor, // Set the desired background color
+                  borderRadius: BorderRadius.circular(4.h),
                 ),
-                itemCount: gridImages.length,
-                itemBuilder: (context, index) {
-                  return GridItem(imageUrl: gridImages[index], title: gridTitles[index]);
-                },
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, // Number of columns in the grid
+                    crossAxisSpacing: 2.h,
+                    mainAxisSpacing: 2.h,
+                  ),
+                  itemCount: gridImages.length,
+                  itemBuilder: (context, index) {
+                    return GridItem(imageUrl: gridImages[index], title: gridTitles[index]);
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
